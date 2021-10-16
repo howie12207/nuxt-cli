@@ -1,0 +1,48 @@
+stages:
+    - build
+
+build:docker_for_master:
+    image: docker:latest
+    services:
+        - docker:dind
+    before_script:
+        - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    stage: build
+    script:
+        - docker build -f Dockerfile --build-arg VERSION="$CI_COMMIT_TAG" --pull --cache-from "$CONTAINER_IMAGE:prod-latest" -t "$CI_REGISTRY_IMAGE:latest" -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
+        - docker push "$CI_REGISTRY_IMAGE:latest"
+        - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+    only:
+        refs:
+            - tags
+        variables:
+            - $CI_COMMIT_TAG =~ /^prod.*$/
+    after_script:
+        - mkdir -p ~/.ssh
+        - echo -e "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        - chmod 600 ~/.ssh/id_rsa
+        - '[[ -f /.dockerenv ]] && echo -e "Host *\nStrictHostKeyChecking no\n" > ~/.ssh/config'
+        - ssh root@$HOST_IP_SGL_AWS -p 22 "cd /root/gitlab-project/aws-manager-command-line-interface-tools-sgl/update/eks-sgl/sgl-credit-service && ./update-credit-site.sh $CI_COMMIT_REF_SLUG"
+
+build:docker_for_develop:
+    image: docker:latest
+    services:
+        - docker:dind
+    before_script:
+        - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    stage: build
+    script:
+        - docker build -f Dockerfile --build-arg VERSION="$CI_COMMIT_TAG" --pull --cache-from "$CONTAINER_IMAGE:prod-latest" -t "$CI_REGISTRY_IMAGE:latest" -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
+        - docker push "$CI_REGISTRY_IMAGE:latest"
+        - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+    only:
+        refs:
+            - tags
+        variables:
+            - $CI_COMMIT_TAG =~ /^dev.*$/
+    after_script:
+        - mkdir -p ~/.ssh
+        - echo -e "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        - chmod 600 ~/.ssh/id_rsa
+        - '[[ -f /.dockerenv ]] && echo -e "Host *\nStrictHostKeyChecking no\n" > ~/.ssh/config'
+        - ssh root@$HOST_IP_SGL_AWS -p 22 "cd /root/gitlab-project/aws-manager-command-line-interface-tools-sgl/update/eks-sgl/sgl-credit-service-test && ./update-credit-site.sh $CI_COMMIT_REF_SLUG"

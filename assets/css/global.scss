@@ -1,0 +1,38 @@
+.page-enter-active,
+.page-leave-active {
+    transition: opacity 0.3s;
+}
+.page-enter,
+.page-leave-to {
+    opacity: 0;
+}
+.fade-enter-active {
+    animation: fade 0.25s ease forwards;
+}
+.fade-leave-active {
+    animation: fade 0.25s ease forwards reverse;
+}
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes move-left {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes move-right {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

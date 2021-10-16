@@ -1,0 +1,111 @@
+module.exports = {
+    cn: {
+        common: {
+            success: '成功',
+            error: '系统异常，请联系客服'
+        },
+        title: {
+            joinAgent: '代理加盟',
+            howWork: '如何运作',
+            earnCommission: '赚取佣金',
+            contact: '联系我们',
+            login: '登陆',
+            register: '注册',
+            forgetPassword: '忘记密码',
+            notice: '通告',
+            overallData: '整体数据',
+            performanceReport: '业绩明细',
+            settlementReport: '结算明细',
+            memberReport: '会员报表',
+            memberDesc: '会员明细',
+            gameReport: '平台报表',
+            linkReport: '链接报表',
+            advertisingBanner: '广告横幅',
+            filter: '筛选',
+            promoteLink: '推广链接',
+            withdrawal: '提款',
+            unprocessedWithdrawal: '尚未处理的提款',
+            bankAccount: '銀行賬戶',
+            txHistory: '交易历史',
+            promotion: '促销',
+            assistant: '小帮手',
+            accountManage: '账户管理',
+            changePassword: '更换密码',
+            addBankAccount: '添加银行账户',
+            updateBankAccount: '編輯银行账户',
+            dayDetails: '日明细'
+        }
+    },
+    en: {
+        common: {
+            success: 'Success',
+            error: 'System error, please contact customer service'
+        },
+        title: {
+            joinAgent: 'Agent to join',
+            howWork: 'How it works',
+            earnCommission: 'Earn commission',
+            contact: 'Contact us',
+            login: 'Sign in',
+            register: 'Register',
+            forgetPassword: 'Forget Password',
+            notice: 'Notice',
+            overallData: 'Overall data',
+            performanceReport: 'Performance Details',
+            settlementPeport: 'Settlement report',
+            memberReport: 'Member Report',
+            memberDesc: 'Member Details',
+            gameReport: 'Platform Report',
+            linkReport: 'link report',
+            advertisingBanner: 'Ad Banner',
+            promoteLink: 'Promote Link',
+            withdrawal: 'Withdrawal',
+            unprocessedWithdrawal: 'Unprocessed Withdrawal',
+            bankAccount: 'Bank Account',
+            txHistory: 'Transaction History',
+            promotion: 'Promotion',
+            assistant: 'Assistant',
+            accountManage: 'Account Manage',
+            changePassword: 'Change Password',
+            addBankAccount: 'Add Bank Account',
+            updateBankAccount: 'Edit Bank Account',
+            dayDetails: 'Day Details'
+        }
+    },
+    th: {
+        common: {
+            success: 'ความสำเร็จ',
+            error: 'ระบบขัดข้อง กรุณาติดต่อฝ่ายบริการลูกค้า'
+        },
+        title: {
+            joinAgent: 'เข้าร่วมเป็นตัวแทน',
+            howWork: 'ระบบการทำงาน',
+            earnCommission: 'การรับค่าคอมมิชชั่น',
+            contact: 'ติดต่อเรา',
+            login: 'เข้าสู่ระบบ',
+            register: 'จดทะเบียน',
+            forgetPassword: 'ลืมรหัสผ่าน',
+            notice: 'ประกาศ',
+            overallData: 'ข้อมูลโดยรวม',
+            performanceReport: 'รายละเอียดประสิทธิภาพ',
+            settlementPeport: 'รายละเอียดรายได้',
+            memberReport: 'รายงานสมาชิก',
+            memberDesc: 'รายละเอียดสมาชิก',
+            gameReport: 'รายงานแพลตฟอร์ม',
+            linkReport: 'รายงานลิงค์',
+            advertisingBanner: 'แบนเนอร์โฆษณา',
+            promoteLink: 'ลิงค์ผู้สนับสนุน',
+            withdrawal: 'การถอน',
+            unprocessedWithdrawal: 'การถอนที่ยังไม่ได้ดำเนินการ',
+            bankAccount: 'บัญชีธนาคาร',
+            txHistory: 'ประวัติการทำรายการ',
+            promotion: 'โปรโมชั่น',
+            assistant: 'ผู้ช่วยตัวน้อย',
+            accountManage: 'การจัดการบัญชี',
+            changePassword: 'อัปเดต รหัสผ่าน',
+            addBankAccount: 'เพิ่มบัญชีธนาคาร',
+            updateBankAccount: 'แก้ไขบัญชีธนาคาร',
+            dayDetails: 'รายละเอียดวัน'
+        }
+    }
+};
